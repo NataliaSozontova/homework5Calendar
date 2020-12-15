@@ -30,7 +30,7 @@ Direct link to the application: https://nataliasozontova.github.io/homework5Cale
 
 * Colored time blocks
 
-![Screenshot]()
+![Screenshot](/assets/images/colored_blocks.png)
 
 ## Installation 
 * Clone this repository.
