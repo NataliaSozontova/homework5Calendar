@@ -1,9 +1,6 @@
 
 var date = $("#currentDay");
 var container = $(".container");
-var descriptionBox = $(".description");
-var saveBtn = $(".saveBtn");
-
 
 //assign current date value 
 var today = moment().format('dddd, MMMM Do YYYY');
@@ -11,11 +8,6 @@ console.log(today);
 date.text(today);
 
 //create time blocks
-/* <div class="row time-block">
-<div for="text-input" class="col-2 hour">9AM</div>
-<textarea class="col-8 form-control description" type="text" id="text-input"></textarea>
-<button class="col-2 saveBtn "><i></i</button>
-</div> */
 function blocks() {
 
     var times = ["9AM", "10AM", "11AM", "12AM", "1PM", "2PM", "3PM", "4PM", "5PM"];
@@ -41,7 +33,7 @@ function blocks() {
     }
 }
 
-//change color of description/event block based on current time:
+//change color of time block based on current time:
 // grey - paste time
 // red - current time
 // green - future time
@@ -53,19 +45,19 @@ function timeBlockColor() {
     for (var i = 0; i < 9; i++) {
         var time = parseInt(document.getElementsByClassName("row")[i].id);
         console.log(time);
-        var textArea =  document.getElementsByClassName("description")[i];
+        var textArea = document.getElementsByClassName("description")[i];
         console.log(textArea);
-    
-    if (time > currentHour) {
-        textArea.className +=" future";
-    } else if (time < currentHour) {
-        textArea.className +=" past";
-    } else if (time === currentHour) {
-        textArea.className +=" present";
+
+        if (time > currentHour) {
+            textArea.className += " future";
+        } else if (time < currentHour) {
+            textArea.className += " past";
+        } else if (time === currentHour) {
+            textArea.className += " present";
+        }
+
     }
-    
-}
-console.log($(this));
+    console.log($(this));
 }
 
 blocks();
@@ -74,27 +66,14 @@ timeBlockColor()
 //store entered event it in the local storage when user clicks the save button
 $(".saveBtn").on("click", function (event) {
     event.preventDefault();
-    console.log($(this));
-
     var hour = $(this)[0].previousElementSibling.id;
-
-    // var eventText = { 
-    //     //how to push value from descriptio near click button, tried closest(), sibling()
-    //    hour : $(this)[0].previousElementSibling.value.trim()
-    // }
-    console.log($(this)[0].previousElementSibling.value.trim());
-
-    // var storedEvents = JSON.parse(localStorage.getItem("eventText")) || [];
-    // console.log("Stored " + storedEvents);
-
-    // storedEvents.push(eventText);
-
     localStorage.setItem(hour, $(this)[0].previousElementSibling.value.trim());
-
 });
 
 function readFromLocalStorage() {
-    $("#hour-19").val(localStorage.getItem("hour-19"));
+    for (var i = 9; i < 18; i++) {
+        $("#hour-" + i).val(localStorage.getItem("hour-" + i));
+    }
 }
 
 readFromLocalStorage();
