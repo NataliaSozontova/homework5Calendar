@@ -69,13 +69,11 @@ $(".saveBtn").on("click", function (event) {
     localStorage.setItem(hour, $(this)[0].previousElementSibling.value.trim());
 });
 
-readFromLocalStorage();
-
 function readFromLocalStorage() {
     for (var i = 9; i < 18; i++) {
         $("#hour-" + i).val(localStorage.getItem("hour-" + i));
     }
 }
 
-// readFromLocalStorage();
+readFromLocalStorage();
 
