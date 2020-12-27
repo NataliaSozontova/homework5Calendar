@@ -55,7 +55,6 @@ function timeBlockColor() {
         } else if (time === currentHour) {
             textArea.className += " present";
         }
-
     }
     console.log($(this));
 }
