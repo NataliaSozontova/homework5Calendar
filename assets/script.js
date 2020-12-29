@@ -66,6 +66,7 @@ timeBlockColor()
 $(".saveBtn").on("click", function (event) {
     event.preventDefault();
     var hour = $(this)[0].previousElementSibling.id;
+    console.log($(this)[0].previousElementSibling.value);
     localStorage.setItem(hour, $(this)[0].previousElementSibling.value.trim());
 });
 
