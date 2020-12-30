@@ -1,3 +1,4 @@
+$(document).ready(function () { 
 
 var date = $("#currentDay");
 var container = $(".container");
@@ -78,3 +79,4 @@ function readFromLocalStorage() {
 
 readFromLocalStorage();
 
+});
