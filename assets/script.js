@@ -63,11 +63,13 @@ blocks();
 timeBlockColor()
 
 //store entered event it in the local storage when user clicks the save button
+$(document).ready(function(){
 $(".saveBtn").on("click", function (event) {
     event.preventDefault();
     var hour = $(this)[0].previousElementSibling.id;
     console.log($(this)[0].previousElementSibling.value);
     localStorage.setItem(hour, $(this)[0].previousElementSibling.value.trim());
+});
 });
 
 function readFromLocalStorage() {
